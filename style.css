@@ -4,6 +4,11 @@ body{
     justify-content: center;
     align-items: center;
 }
+
+* {
+    box-sizing: border-box;
+}
+
 .maindiv{
     height: auto;
     width: 320px;
@@ -29,12 +34,12 @@ body{
     padding-left: 7px;
     padding-right: 7px;
     border-width: 1px;
-    width: 95%;
+    width: 100%;
 }
 .formdiv label input:focus,
 .formdiv label.filled input
 {
-    border-color: #0E3049;
+    border-color: #F85A3E;
     border-width: 2px;
 }
 
@@ -52,14 +57,14 @@ body{
 .formdiv label.filled span{
     top: -18px;
     font-size: 10pt;
-    color: #0E3049;
+    color: #F85A3E;
 }
 .maindiv div form button{
     width: 100%;
     height: 40px;
     border-radius: 7px;
     border: 0px;
-    background-color: #0E3049;
+    background-color: #F85A3E;
     color: white;
     font-weight: bold;
     font-size: 14pt;
@@ -69,7 +74,7 @@ body{
 }
 
 .maindiv div form button:hover{
-    box-shadow: 0px 0px 20px 1px #0E3049;
+    box-shadow: 0px 0px 20px 1px #F85A3E;
 }
     
 

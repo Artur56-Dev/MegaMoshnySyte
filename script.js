@@ -20,7 +20,7 @@ function checkpass(event) {
   const pass2Value = form.pass2.value;
   
   if (pass1Value !== pass2Value) {
-    alert('Пароли не совпадают');
+    alert('Пароли не совпадают'); 
   } else {
     alert('Пароли совпадают');
   }

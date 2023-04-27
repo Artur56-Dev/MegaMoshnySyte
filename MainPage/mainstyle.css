@@ -1,0 +1,107 @@
+
+:root{
+    /* --color1: #0E3049;
+    --color-accent: #0D858A;
+    --color-accent2: #7FC7A6;
+    --color-border: #F1D05A;
+    --color-button: #F85A3E; */
+
+    --color1: #DEDCE9;
+    --color-accent: #7365AF;
+    --color-accent2: #8E77B3;
+    --color-border: #674890;
+    --color-button: #3D398D;
+}
+
+* {
+    margin: 0;
+}
+
+body{
+    height: 300vh;
+}
+
+.header {
+    background-color: var(--color-border);
+    height: 70px;
+    width: 100%;
+    margin-top: 0;
+    transition: all 0.5s ease-in-out;
+}
+.header.fixed-top {
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    right: 0;
+    box-shadow: 0 5px 10px rgb(0,0,0, 0.4);
+  }
+
+  .header.hidden {
+    display: none;
+  }
+
+.xd {
+    display: flex;
+    box-sizing: border-box;
+    height: 30px;
+    width: 100%;
+    padding: 5px;
+    justify-content: space-between;
+}
+
+.aa1{
+    display: flex;
+}
+
+.aa1 img{
+    margin-right: 5px;
+}
+
+.place{
+    margin-right: 20px;
+}
+
+.replace{
+    transition: all 0.2s ease-in-out;
+    cursor: pointer;
+    background-color: transparent;
+    border-width: 0;
+    font-weight: 500;
+}
+
+.aa2{
+    justify-content: flex-end;
+    display: flex;
+}
+
+.aa2 ul{
+    list-style: none;
+    display: flex;
+}
+
+.aa2 ul li button{
+    cursor: pointer;
+    margin-right: 5px;
+}
+
+.replace:hover{
+    color: var(--color-button);
+}
+
+.aa2-bt1{
+    background-color: var(--color-button);
+    color: white;
+    border-radius: 7px;
+    border-width: 0;
+}
+.aa2-bt2{
+    background-color: transparent;
+    border-width: 0;
+}
+
+.ajshdfkjdh{
+    height: 300px;
+    width: auto;
+    background-color: var(--color-accent2);
+}
