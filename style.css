@@ -1,3 +1,7 @@
+@font-face {
+    font-family: "GTEestiPro-Regular";
+    src: url("/fonts/GTEestiProDisplay-Regular.woff2") format("woff2");
+}
 body{
     display: flex;
     height: 100vh;
@@ -7,6 +11,7 @@ body{
 
 * {
     box-sizing: border-box;
+    font-family: "GTEestiPro-Regular";
 }
 
 .maindiv{
@@ -19,7 +24,6 @@ body{
     justify-content: center;
     align-items: top;
     padding: 30px;
-    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
 }
 .formdiv label{
     position: relative;
@@ -39,7 +43,7 @@ body{
 .formdiv label input:focus,
 .formdiv label.filled input
 {
-    border-color: #F85A3E;
+    border-color: #3D398D;
     border-width: 2px;
 }
 
@@ -57,24 +61,23 @@ body{
 .formdiv label.filled span{
     top: -18px;
     font-size: 10pt;
-    color: #F85A3E;
+    color: #3D398D;
 }
 .maindiv div form button{
     width: 100%;
     height: 40px;
     border-radius: 7px;
     border: 0px;
-    background-color: #F85A3E;
+    background-color: #3D398D;
     color: white;
     font-weight: bold;
     font-size: 14pt;
     cursor: pointer;
     transition: all 0.5s ease-in-out;
-    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
 }
 
 .maindiv div form button:hover{
-    box-shadow: 0px 0px 20px 1px #F85A3E;
+    box-shadow: 0px 0px 20px 1px #3D398D;
 }
     
 
