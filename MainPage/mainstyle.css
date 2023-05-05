@@ -1,10 +1,10 @@
 @font-face {
     font-family: "GTEestiPro-Light";
-    src: url("/fonts/GTEestiProDisplay-Light.woff2") format("woff2");
+    src: url("../fonts/GTEestiProDisplay-Light.woff2") format("woff2");
 }
 @font-face {
     font-family: "GTEestiPro-Regular";
-    src: url("/fonts/GTEestiProDisplay-Regular.woff2") format("woff2");
+    src: url("../fonts/GTEestiProDisplay-Regular.woff2") format("woff2");
 }
 :root{
     /* --color1: #0E3049;
@@ -20,12 +20,14 @@
     /* --color-button: #3D398D; */
     --color-button: #7365AF;
     --color-font:#001a34;
+    --color-variant: #10c44c;
 }
 
 * {
     margin: 0;
     font-family: "GTEestiPro-Regular";
     color: var(--color-font);
+    box-sizing: border-box;
 }
 
 body{
@@ -231,29 +233,11 @@ body{
     fill: #001a34;
 }
 
-
-
-.ajshdfkjdh{
-    height: 500px;
-    width: 100%;
-    background-color: white;
-}
-.ajshdfkjdh1{
-    height: 200px;
-    width: 100%;
-    background-color: red;
-}
-.ajshdfkjdh3{
-    height: 300px;
-    width: 100%;
-    background-color: blue;
-}
-
 footer{
     height: auto;
     background-color: #eef1f2;
     box-sizing: border-box;
-    padding: 30px;
+    padding: 40px 60px;
 }
 
 footer div{
@@ -300,13 +284,204 @@ footer div div{
     height: 50px;
     width: 50px;
     border-radius: 10px;
-    margin: 0 5px;
+    margin: 0 0px;
     border-width: 0;
 }
 
 .foot-div2 div button img{
-    height: 100%;
+    height: 80%;
     cursor: pointer;
 }
 
 
+
+.mainregisterdiv{
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    width: 400px;
+    height: 500px;
+    z-index: 1;
+    /* background-color: transparent; */
+    background-color: white;
+    border-radius: 20px;
+    border-style: solid;
+    /* border-color: rgba(255,255,255,0.4); */
+    border-width: 0px;
+    /* backdrop-filter: blur(10px); */
+    padding: 20px;
+    box-shadow: 0 0 30px rgba(0,0,0,0.2);
+}
+    
+
+.registrbut{
+    height: 100%px;
+    width: auto;
+    color: white;
+    padding: 0 10px;
+    background-color: var(--color-button);
+    border-radius: 10px;
+    border-width: 0px;
+    cursor: pointer;
+    font-size: 14pt;
+}
+
+.regdiv1{
+    display: flex;
+    justify-content: space-between;
+    height: 40px;
+    margin-bottom: 40px;
+}
+
+.regdiv2{
+    display: flex;
+    flex-direction: column;
+}
+
+.regdiv2 label{
+    position: relative;
+}
+
+.regdiv2 span{
+    position: absolute;
+    left: 10px;
+    top: 15px;
+    background-color: white;
+    
+    transition: all 0.3s ease-out;
+}
+
+.regdiv2 input:focus{
+    border-color: var(--color-accent2);
+}
+
+.regdiv2 input:focus + span,
+.regdiv2 label.filled span{
+    top: -10px;
+    color: var(--color-accent2);
+    background-color: white;
+    padding: 0 10px;
+}
+
+.btnclose{
+    height: 35px;
+    padding: 10px;
+    border-radius: 100%;
+    border-width: 0;
+    margin-left: 320px;
+    margin-right: 5px;
+    margin-bottom: 20px;
+    background-color: transparent;
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+.btnclose:hover{
+    background-color: lightgray;
+}
+
+.btnclose img{
+    height: 100%;
+}
+.regdiv2 input{
+    padding: 0 15px;
+    width: 100%;
+    height: 50px;
+    outline: none;
+    background-color: white;
+    border-radius: 10px;
+    border: solid 2px lightgray;
+    margin-bottom: 20px;
+    font-size: 12pt;
+}
+
+.regdiv2 button{
+    height: 40px;
+    width: auto;
+    color: white;
+    padding: 0 10px;
+    background-color: var(--color-button);
+    border-radius: 10px;
+    border-width: 0px;
+    cursor: pointer;
+    font-size: 14pt;
+}
+
+.maindivwithproducts{
+    height: auto;
+    padding: 50px;
+    
+}
+
+.productsdiv{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.divcelldiv{
+    display: flex;
+    flex-direction: column;
+    flex-basis: calc(20% - 20px);
+    padding-bottom: 50px;
+}
+
+.divwithimg img{
+    object-fit: contain;
+    height: 100%;
+    width: 100%;
+    cursor: pointer;
+}
+
+.divwithimg{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 260px;
+    width: 200px;
+}
+
+.divcelldiv span{
+    margin-bottom: 50px;
+    background-color: var(--color-variant);
+    width: auto;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 10px;
+}
+
+.divcelldiv a{
+    cursor: pointer;
+    margin-top: 10px;
+    transition: all 0.2s ease-in-out;
+}
+
+.divwithspan{
+    margin-top: 15px;
+}
+
+.divwithname{
+    margin-top: 10px;
+    min-height: 60px;
+}
+
+.divcelldiv a:hover{
+    color: var(--color-button);
+}
+
+.divcelldiv button{
+    height: 40px;
+    width: fit-content;
+    padding: 0 15px;
+    background-color: var(--color-button);
+    border-width: 0;
+    margin-top: 5px;
+    border-radius: 10px;
+    color: white;
+    font-size: 12pt;
+    cursor: pointer;
+}
