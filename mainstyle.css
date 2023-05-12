@@ -21,6 +21,9 @@
     --color-button: #7365AF;
     --color-font:#001a34;
     --color-variant: #10c44c;
+    --color-back: #ffffff;
+
+    --border-radius: 7px;
 }
 
 * {
@@ -43,7 +46,7 @@ body{
     transition: all 0.5s ease-in-out;
     justify-content: space-between;
     margin-left: 0;
-    background-color: white;
+    background-color: var(--color-back);
 }
 .header.fixed-top {
     position: fixed;
@@ -62,7 +65,7 @@ body{
     background-color: var(--color-font);
     align-items: center;
     margin-left: 10px;
-    border-radius: 10px;
+    border-radius:  var(--border-radius);
     background-color: var(--color-button);
 }
 
@@ -116,10 +119,11 @@ body{
 
 .aa2-bt1{
     background-color: var(--color-button);
-    color: white;
-    border-radius: 10px;
+    color: var(--color-back);
+    border-radius:  var(--border-radius);
     border-width: 0;
     height: 100%;
+
 }
 .aa2-bt2{
     background-color: transparent;
@@ -130,7 +134,6 @@ body{
 .aa2-bt2:hover{
     color: var(--color-button);
 }
-
 
 .aa5{
     display: flex;
@@ -146,7 +149,7 @@ body{
 .aa3{
     height: 35px;
     width: 120px;
-    border-radius: 10px;
+    border-radius:  var(--border-radius);
     align-items: center;
     background-color: var(--color-button);
     display: flex;
@@ -158,7 +161,7 @@ body{
 }
 
 .aa3 p{
-    color: white;
+    color: var(--color-back);
     margin-left: 5px;
 }
 
@@ -167,14 +170,14 @@ body{
     height: 40px;
     width: 800px;
     background-color: var(--color-button);
-    border-radius: 10px;
+    border-radius:  var(--border-radius);
     padding: 2px ;
     margin: 10px;
     align-items: center;
 }
 
 .aa4-dv1{
-    background-color: white;
+    background-color: var(--color-back);
     width: 100%;
     height: 100%;
     border-radius: 8px;
@@ -233,6 +236,53 @@ body{
     fill: #001a34;
 }
 
+.loginautorizbut1 {
+    position: relative;
+    z-index: 1; /* add */
+  }
+
+.loginautorizbut1:hover + .aa5-bd1,
+.aa5-bd1:hover,
+.aa5-bd1 a:hover{
+    opacity: 1;
+    transition-delay: 0s;
+    z-index: 2;
+}
+
+.loginautorizbut1 + .aa5-bd1{
+    opacity: 0;
+    display: flex;
+    position: absolute;
+    height: auto;
+    min-width: 100px;
+    background-color: var(--color-back);
+    margin-top: 60px;
+    margin-left: -10px;
+    border-radius: var(--border-radius);
+    box-shadow: 0 0 30px rgba(0,0,0,0.2);
+    flex-direction: column;
+    flex-wrap: wrap;
+    padding: 10px 0px 0px 0px;
+    transition: all 0.2s ease-in-out;
+    transition-delay: 0.3s;
+    z-index: 2;
+}
+
+
+
+.aa5-bd1 a{
+    margin-bottom: 10px;
+    transition: all 0.2s ease-in-out;
+    font-family: "GTEestiPro-Light";
+    font-size: 11pt;
+    padding: 0 20px;
+}
+
+.aa5-bd1 a:hover{
+    color: var(--color-accent);
+    cursor: pointer;
+}
+
 footer{
     height: auto;
     background-color: #eef1f2;
@@ -283,7 +333,7 @@ footer div div{
 .foot-div2 div button{
     height: 50px;
     width: 50px;
-    border-radius: 10px;
+    border-radius:  var(--border-radius);
     margin: 0 0px;
     border-width: 0;
 }
@@ -307,12 +357,12 @@ footer div div{
     height: 500px;
     z-index: 1;
     /* background-color: transparent; */
-    background-color: white;
-    border-radius: 20px;
+    background-color: var(--color-back);
+    border-radius: 10px;
     border-style: solid;
-    /* border-color: rgba(255,255,255,0.4); */
+    border-color: rgba(255,255,255,0.4);
     border-width: 0px;
-    /* backdrop-filter: blur(10px); */
+    backdrop-filter: blur(5px);
     padding: 20px;
     box-shadow: 0 0 30px rgba(0,0,0,0.2);
 }
@@ -321,10 +371,10 @@ footer div div{
 .registrbut{
     height: 100%px;
     width: auto;
-    color: white;
+    color: var(--color-back);
     padding: 0 10px;
     background-color: var(--color-button);
-    border-radius: 10px;
+    border-radius:  var(--border-radius);
     border-width: 0px;
     cursor: pointer;
     font-size: 14pt;
@@ -350,7 +400,7 @@ footer div div{
     position: absolute;
     left: 10px;
     top: 15px;
-    background-color: white;
+    background-color: var(--color-back);
     
     transition: all 0.3s ease-out;
 }
@@ -363,7 +413,7 @@ footer div div{
 .regdiv2 label.filled span{
     top: -10px;
     color: var(--color-accent2);
-    background-color: white;
+    background-color: var(--color-back);
     padding: 0 10px;
 }
 
@@ -392,8 +442,8 @@ footer div div{
     width: 100%;
     height: 50px;
     outline: none;
-    background-color: white;
-    border-radius: 10px;
+    background-color: var(--color-back);
+    border-radius:  var(--border-radius);
     border: solid 2px lightgray;
     margin-bottom: 20px;
     font-size: 12pt;
@@ -402,10 +452,10 @@ footer div div{
 .regdiv2 button{
     height: 40px;
     width: auto;
-    color: white;
+    color: var(--color-back);
     padding: 0 10px;
     background-color: var(--color-button);
-    border-radius: 10px;
+    border-radius:  var(--border-radius);
     border-width: 0px;
     cursor: pointer;
     font-size: 14pt;
@@ -426,7 +476,7 @@ footer div div{
 .divcelldiv{
     display: flex;
     flex-direction: column;
-    flex-basis: calc(20% - 20px);
+    flex-basis: calc(20% - 10px);
     padding-bottom: 50px;
 }
 
@@ -449,9 +499,9 @@ footer div div{
     margin-bottom: 50px;
     background-color: var(--color-variant);
     width: auto;
-    color: white;
+    color: var(--color-back);
     padding: 5px 10px;
-    border-radius: 10px;
+    border-radius:  var(--border-radius);
 }
 
 .divcelldiv a{
@@ -480,8 +530,28 @@ footer div div{
     background-color: var(--color-button);
     border-width: 0;
     margin-top: 5px;
-    border-radius: 10px;
-    color: white;
+    border-radius:  var(--border-radius);
+    color: var(--color-back);
     font-size: 12pt;
     cursor: pointer;
+}
+.basket{
+    position: relative;
+}
+
+.quantitycircle{
+    position: absolute;
+    border-radius: 100%;
+    height: 17px;
+    width: 17px;
+    background-color: #001a34;
+    background-color: var(--color-accent2);
+    top: 0;
+    right: 20px;
+}
+
+.quantitycircle span{
+    color: var(--color-back);
+    font-weight: 700;
+    font-size: 10pt;
 }

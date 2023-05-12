@@ -12,7 +12,6 @@ function insertProducts(products) {
 
   for (const product of products) {
     const productDiv = document.createElement("div");
-    productDiv.style.flexBasis = "20%";
     productDiv.className += "divcelldiv"
 
     productDiv.innerHTML = `
@@ -25,7 +24,7 @@ function insertProducts(products) {
         <div class="divwithname">
             <a>${product.description}</a>
         </div>
-          <button>В корзину</button>
+          <button id='addinbasket' onclick='myfunction()'>В корзину</button>
     `;
     // productDiv.innerHTML = `
     //   <div class="card">
@@ -43,6 +42,8 @@ function insertProducts(products) {
     flexContainer.appendChild(productDiv);
   }
 }
+
+
 
 
 
