@@ -28,6 +28,7 @@ window.addEventListener('scroll', () => {
   }
 });
 
+// показывать или скрывать форму входа
 const form = {
   login: document.getElementById('login'),
   pass1: document.getElementById('password')
@@ -48,6 +49,10 @@ form.pass1.oninput = (event) => handleInput(event, 'pass1')
 const regform = document.querySelector('.mainregisterdiv');
 const loginbtn = document.querySelector('.loginautorizbut1');
 const colseregform = document.querySelector('.btnclose');
+
+localStorage.setItem('sessionID', 'my-session-id');
+const sessionID = localStorage.getItem('sessionID');
+
 
 loginbtn.addEventListener('click', () => {
   regform.style.display = 'block';
@@ -70,19 +75,19 @@ colseregform.addEventListener('click', () => {
 });
 
 // нажатие на кнопку "в корзину"
-let count = 0;
-const counter = document.querySelector('#cart-quantity');
-function myfunction() {
-  count++;
-  console.log('кнопка работает');
-  counter.innerHTML = count.toString();
-}
+// let count = 0;
+// const counter = document.querySelector('#cart-quantity');
+// function myfunction() {
+//   count++;
+//   console.log('кнопка работает');
+//   counter.innerHTML = count.toString();
+// }
 
+// нажатие на кнопку войти, выполнение ajax с добавление данных пользователя в сессию
 $('.signinbutton').click(function (e) {
   e.preventDefault();
   var login = $('input[name="login"]').val(),
     password = $('input[name="password"]').val();
-
   $.ajax({
     url: 'http://localhost/signin.php',
     type: 'POST',
@@ -96,13 +101,14 @@ $('.signinbutton').click(function (e) {
 
       if (data.status === true) {
         console.log(data.full_name);
+        regform.style.display = 'none';
         console.log('Пользователь найден');
         // document.location.href = 'http://megamoshnysyte/profile/profile.php';
         $.ajax({
           url: 'http://localhost/update.php',
           type: 'POST',
           dataType: 'json',
-          success: function(updatedData) {
+          success: function (updatedData) {
             console.log(updatedData);
             $('.aa5-bb1').text(updatedData);
           },
@@ -122,44 +128,46 @@ $('.signinbutton').click(function (e) {
   });
 });
 
+// выпадающее меню
 var hideTimeout;
 var loginautorizbut1 = document.querySelector('.loginautorizbut1');
 var aa5_bd1 = document.querySelector('.aa5-bd1');
 
-loginautorizbut1.addEventListener('mouseenter', function() {
+loginautorizbut1.addEventListener('mouseenter', function () {
   clearTimeout(hideTimeout);
   aa5_bd1.style.opacity = 1;
   aa5_bd1.style.visibility = 'visible';
 });
 
-loginautorizbut1.addEventListener('mouseleave', function() {
+loginautorizbut1.addEventListener('mouseleave', function () {
   startHideTimeout();
 });
 
-aa5_bd1.addEventListener('mouseenter', function() {
+aa5_bd1.addEventListener('mouseenter', function () {
   clearTimeout(hideTimeout);
 });
 
-aa5_bd1.addEventListener('mouseleave', function() {
+aa5_bd1.addEventListener('mouseleave', function () {
   startHideTimeout();
 });
 
 function startHideTimeout() {
-  hideTimeout = setTimeout(function() {
+  hideTimeout = setTimeout(function () {
     aa5_bd1.style.opacity = 0;
     aa5_bd1.style.visibility = 'hidden';
   }, 300); // 1 second delay
 }
 
-$('#logout-btn').click(function() {
+// ajax запрос выход польхователя и удаление его данных из сессии
+$('#logout-btn').click(function () {
   $.ajax({
     type: 'POST',
     url: 'http://localhost/logout.php',
-    success: function() {
+    success: function () {
       console.log('Выход выполнен');
       location.reload();
     },
-    error: function(jqXHR, textStatus, errorThrown){
+    error: function (jqXHR, textStatus, errorThrown) {
       console.error(textStatus, errorThrown);
     }
   });

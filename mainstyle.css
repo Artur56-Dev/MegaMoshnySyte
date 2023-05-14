@@ -140,7 +140,7 @@ body{
     justify-content: space-between;
 }
 
-.aa5 button{
+.aa5 .aa5-bb{
     margin-right: 10px;
     width: 80px;
     height: 45px;
@@ -195,6 +195,14 @@ body{
     border-width: 0;
     width: 100%;
     color: var(--color-font);
+}
+
+.signinbutton{
+    transition: all 0.3s ease-in-out;
+}
+
+.signinbutton:hover{
+    box-shadow: 0 0 10px var(--color-accent2);
 }
 
 .aa4-dv2{
@@ -268,17 +276,24 @@ body{
     z-index: 2;
 }
 
-
+#logout-btn{
+    font-size: 11pt;
+    font-family: "GTEestiPro-Light";
+    padding: 0px 10px 10px 10px;
+    text-align: start;
+    transition: all 0.2s ease-in-out;
+}
 
 .aa5-bd1 a{
-    margin-bottom: 10px;
     transition: all 0.2s ease-in-out;
     font-family: "GTEestiPro-Light";
     font-size: 11pt;
-    padding: 0 20px;
+    padding: 0px 10px 10px 10px;
+    text-decoration: none;
 }
 
-.aa5-bd1 a:hover{
+.aa5-bd1 a:hover,
+#logout-btn:hover{
     color: var(--color-accent);
     cursor: pointer;
 }

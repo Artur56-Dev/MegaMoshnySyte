@@ -11,6 +11,7 @@ $full_name = $_SESSION['user']['full_name'];
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="mainstyle.css">
   <script src="  https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.6.4.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   <title>Маркет</title>
 
 </head>
@@ -49,8 +50,7 @@ $full_name = $_SESSION['user']['full_name'];
       </div>
     </div>
     <div class="aa5">
-      
-      <button class="loginautorizbut1">
+      <button class="loginautorizbut1 aa5-bb">
         <img src="../Icons/account.svg" height="60%" />
         <p class="aa5-bb1">
           <?php
@@ -60,28 +60,27 @@ $full_name = $_SESSION['user']['full_name'];
             $name_parts = explode(' ', $full_name); // split full name by space character
             $first_name = $name_parts[0];
             echo $first_name;
-          }
-          else{
+          } else {
             echo 'Войти';
           }
           ?>
         </p>
       </button>
       <div class="aa5-bd1">
-        <a>Личный кабинет</a>
+        <a href="/profile/profile.php">Личный кабинет</a>
         <a>Заказы</a>
         <a>Избранное</a>
         <Button id="logout-btn">Выйти</Button>
       </div>
-      <button>
+      <button class="aa5-bb">
         <img src="../Icons/inventory.svg" height="60%" />
         <p>Заказы</p>
       </button>
-      <button>
+      <button class="aa5-bb">
         <img src="../Icons/favorite.svg" height="60%" />
         <p>Избранное</p>
       </button>
-      <button class="basket">
+      <button class="basket aa5-bb">
         <div class="quantitycircle">
           <span id="cart-quantity">0</span>
         </div>
@@ -162,8 +161,8 @@ $full_name = $_SESSION['user']['full_name'];
       </div>
     </div>
   </footer>
-  <script src="mainscript.js"></script>
   <script src="dbconnection.js"></script>
+  <script src="mainscript.js"></script>
 </body>
 
 </html>
