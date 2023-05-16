@@ -52,11 +52,13 @@ const colseregform = document.querySelector('.btnclose');
 
 localStorage.setItem('sessionID', 'my-session-id');
 const sessionID = localStorage.getItem('sessionID');
-
-
-loginbtn.addEventListener('click', () => {
+loginbtn.addEventListener('click', myHandler);
+function myHandler (event){
   regform.style.display = 'block';
-});
+};
+// loginbtn.addEventListener('click', () => {
+//   regform.style.display = 'block';
+// });
 colseregform.addEventListener('click', () => {
   regform.style.display = 'none';
 
@@ -111,9 +113,21 @@ $('.signinbutton').click(function (e) {
           success: function (updatedData) {
             console.log(updatedData);
             $('.aa5-bb1').text(updatedData);
+            loginbtn.removeEventListener('click', myHandler);
           },
           error: function (jqXHR, textStatus, errorThrown) {
             console.log('Error:', jqXHR, textStatus, errorThrown);
+          }
+        });
+        $.ajax({
+          url: 'http://localhost/updatecartquantity.php',
+          type: 'POST',
+          dataType: 'JSON',
+          success: function(response) {
+            $('#cart-quantity').text(response);
+          },
+          error: function(error) {
+            console.error('AJAX request failed', error);
           }
         });
       }
@@ -155,7 +169,7 @@ function startHideTimeout() {
   hideTimeout = setTimeout(function () {
     aa5_bd1.style.opacity = 0;
     aa5_bd1.style.visibility = 'hidden';
-  }, 300); // 1 second delay
+  }, 300);
 }
 
 // ajax запрос выход польхователя и удаление его данных из сессии
@@ -166,9 +180,19 @@ $('#logout-btn').click(function () {
     success: function () {
       console.log('Выход выполнен');
       location.reload();
+      
     },
     error: function (jqXHR, textStatus, errorThrown) {
       console.error(textStatus, errorThrown);
     }
   });
+});
+
+const catrpagebutton = document.querySelector('#cartpageopen');
+catrpagebutton.addEventListener('click', function() {
+  window.location.href = "http://megamoshnysyte/Cart/";
+});
+const orderpagebutton = document.querySelector("#orderpageopen");
+orderpagebutton.addEventListener('click', function() {
+  window.location.href = "http://megamoshnysyte/Order/index.php";
 });

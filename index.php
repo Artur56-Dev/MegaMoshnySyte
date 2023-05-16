@@ -1,7 +1,31 @@
 <?php
 session_id("my-session-id");
 session_start();
+header('Access-Control-Allow-Origin: http://localhost');
+header("Access-Control-Allow-Origin: *");
+header("Access-Control-Allow-Methods: *");
+header("Access-Control-Allow-Headers: *");
 $full_name = $_SESSION['user']['full_name'];
+$user_id = $_SESSION['user']['user_id'];
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "InternetStore";
+if (isset($_SESSION['user'])) {
+  $conn = mysqli_connect($servername, $username, $password, $dbname);
+  $sql = "SELECT `basket_id` FROM `Basket` WHERE `user_id` = $user_id";
+  $result = $conn->query($sql);
+  $row = $result->fetch_assoc();
+  $basket_id = $row['basket_id'];
+}
+
+  // Query the Cart_item table to count the number of rows with the user's basket_id
+  if (isset($_SESSION['cart_id'])) {
+  $sql = "SELECT COUNT(*) as `num_items` FROM `Cart_item` WHERE `basket_id` = $basket_id";
+  $result = $conn->query($sql);
+  $row = $result->fetch_assoc();
+  $num_items = $row['num_items'];
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -72,7 +96,7 @@ $full_name = $_SESSION['user']['full_name'];
         <a>Избранное</a>
         <Button id="logout-btn">Выйти</Button>
       </div>
-      <button class="aa5-bb">
+      <button id="orderpageopen" class="aa5-bb">
         <img src="../Icons/inventory.svg" height="60%" />
         <p>Заказы</p>
       </button>
@@ -80,9 +104,13 @@ $full_name = $_SESSION['user']['full_name'];
         <img src="../Icons/favorite.svg" height="60%" />
         <p>Избранное</p>
       </button>
-      <button class="basket aa5-bb">
+      <button id="cartpageopen" class="basket aa5-bb" function="">
         <div class="quantitycircle">
-          <span id="cart-quantity">0</span>
+          <span id="cart-quantity">
+            <?php
+            echo $num_items;
+            ?>
+          </span>
         </div>
         <img src="../Icons/shopping.svg" height="60%" />
         <p>Корзина</p>

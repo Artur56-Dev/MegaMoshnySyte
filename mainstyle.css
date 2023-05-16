@@ -556,13 +556,12 @@ footer div div{
 
 .quantitycircle{
     position: absolute;
-    border-radius: 100%;
+    border-radius: 10px;
     height: 17px;
-    width: 17px;
-    background-color: #001a34;
+    width: 22px;
     background-color: var(--color-accent2);
     top: 0;
-    right: 20px;
+    right: 5px;
 }
 
 .quantitycircle span{

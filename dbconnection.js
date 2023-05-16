@@ -35,11 +35,21 @@ fetch('http://localhost/dbcoonetion.php')
           body: JSON.stringify(data)
         })
         .then(response => {
-          console.log('Ответ сервера:', response); // Добавьте эту строку
           return response.json();
       })
       .then(data => {
           console.log('Товар добавлен');
+          $.ajax({
+            url: 'http://localhost/updatecartquantity.php',
+            type: 'POST',
+            dataType: 'JSON',
+            success: function(response) {
+              $('#cart-quantity').text(response);
+            },
+            error: function(error) {
+              console.error('AJAX request failed', error);
+            }
+          });
       })
       .catch(error => {
           console.error(error);
@@ -60,8 +70,6 @@ fetch('http://localhost/dbcoonetion.php')
               
               productDiv.appendChild(button);
               flexContainer.appendChild(productDiv);
-              
-              console.log('элементы загружены');
             }
           }
           

@@ -18,7 +18,7 @@ if (isset($_SESSION['user'])) { // check if the 'user' session variable is set
 } else {
     echo "User not logged in.";
 }
-
+$cart_id = $_SESSION["cart_id"];
 // $_SESSION['user'] = [
 //     "id" => 1,
 //     "username" => "john_doe",
