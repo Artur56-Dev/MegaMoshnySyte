@@ -1,571 +1,632 @@
 @font-face {
-    font-family: "GTEestiPro-Light";
-    src: url("../fonts/GTEestiProDisplay-Light.woff2") format("woff2");
+  font-family: "GTEestiPro-Light";
+  src: url("../fonts/GTEestiProDisplay-Light.woff2") format("woff2");
 }
 @font-face {
-    font-family: "GTEestiPro-Regular";
-    src: url("../fonts/GTEestiProDisplay-Regular.woff2") format("woff2");
+  font-family: "GTEestiPro-Regular";
+  src: url("../fonts/GTEestiProDisplay-Regular.woff2") format("woff2");
 }
-:root{
-    /* --color1: #0E3049;
+:root {
+  /* --color1: #0E3049;
     --color-accent: #0D858A;
     --color-accent2: #7FC7A6;
     --color-border: #F1D05A;
     --color-button: #F85A3E; */
 
-    --color1: #DEDCE9;
-    --color-accent: #7365AF;
-    --color-accent2: #8E77B3;
-    --color-border: #674890;
-    /* --color-button: #3D398D; */
-    --color-button: #7365AF;
-    --color-font:#001a34;
-    --color-variant: #10c44c;
-    --color-back: #ffffff;
+  --color1: #dedce9;
+  --color-accent: #7365af;
+  --color-accent2: #8e77b3;
+  --color-border: #674890;
+  /* --color-button: #3D398D; */
+  --color-button: #7365af;
+  --color-font: #001a34;
+  --color-variant: #10c44c;
+  --color-back: #ffffff;
 
-    --border-radius: 7px;
+  --color-color1: #191970;
+  --color-color2: #00008b;
+  --color-color3: #0000cd;
+  --color-color4: #4169e1;
+
+  --border-radius: 7px;
 }
 
 * {
-    margin: 0;
-    font-family: "GTEestiPro-Regular";
-    color: var(--color-font);
-    box-sizing: border-box;
+  margin: 0;
+  font-family: "GTEestiPro-Regular";
+  color: var(--color-font);
+  box-sizing: border-box;
 }
 
-body{
-    display: block;
+body {
+  display: block;
 }
 
-.header{
-    display: flex;
-    align-items: center;
-    height: 60px;
-    width: 100%;
-    margin-top: 0;
-    transition: all 0.5s ease-in-out;
-    justify-content: space-between;
-    margin-left: 0;
-    background-color: var(--color-back);
+.header {
+  display: flex;
+  align-items: center;
+  height: 60px;
+  width: 100%;
+  margin-top: 0;
+  transition: all 0.5s ease-in-out;
+  justify-content: space-between;
+  margin-left: 0;
+  background-color: var(--color-back);
 }
 .header.fixed-top {
-    position: fixed;
-    z-index: 1;
-    top: 0;
-    left: 0;
-    right: 0;
-    /* border-bottom: 2px solid rgba(0,0,0, 0.3); */
-    box-shadow: 0 5px 10px rgb(0,0,0, 0.1);
-    /* backdrop-filter: blur(30px); */
-  }
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  right: 0;
+  /* border-bottom: 2px solid rgba(0,0,0, 0.3); */
+  box-shadow: 0 5px 10px rgb(0, 0, 0, 0.1);
+  /* backdrop-filter: blur(30px); */
+}
 
-.icondiv{
-    height: 50px;
-    width: 130px;
-    background-color: var(--color-font);
-    align-items: center;
-    margin-left: 10px;
-    border-radius:  var(--border-radius);
-    background-color: var(--color-button);
+.icondiv {
+  height: 50px;
+  width: auto;
+  align-items: center;
+  margin-left: 10px;
+  border-radius: var(--border-radius);
 }
 
 .xd {
-    display: flex;
-    box-sizing: border-box;
-    height: 30px;
-    width: 100%;
-    padding: 5px;
-    justify-content: space-between;
+  display: flex;
+  box-sizing: border-box;
+  height: 30px;
+  width: 100%;
+  padding: 5px;
+  justify-content: space-between;
 }
 
-.aa1{
-    display: flex;
+.aa1 {
+  display: flex;
 }
 
-.aa1 img{
-    margin-right: 5px;
+.aa1 img {
+  margin-right: 5px;
 }
 
-.place{
-    margin-right: 20px;
+.place {
+  margin-right: 20px;
 }
 
-.replace{
-    transition: all 0.2s ease-in-out;
-    cursor: pointer;
-    background-color: transparent;
-    border-width: 0;
-    font-weight: 500;
+.replace {
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+  background-color: transparent;
+  border-width: 0;
+  font-weight: 500;
 }
 
-.aa2{
-    justify-content: flex-end;
-    display: flex;
+.aa2 {
+  justify-content: flex-end;
+  display: flex;
 }
 
-.aa2 ul{
-    list-style: none;
-    display: flex;
+.aa2 ul {
+  list-style: none;
+  display: flex;
 }
 
-.aa2 ul li button{
-    cursor: pointer;
-    margin-right: 5px;
+.aa2 ul li button {
+  cursor: pointer;
+  margin-right: 5px;
 }
 
-.replace:hover{
-    color: var(--color-button);
+.replace:hover {
+  color: var(--color-button);
 }
 
-.aa2-bt1{
-    background-color: var(--color-button);
-    color: var(--color-back);
-    border-radius:  var(--border-radius);
-    border-width: 0;
-    height: 100%;
-
+.aa2-bt1 {
+  background-color: var(--color-color1);
+  color: var(--color-back);
+  border-radius: var(--border-radius);
+  border-width: 0;
+  height: 100%;
 }
-.aa2-bt2{
-    background-color: transparent;
-    border-width: 0;
-    transition: all 0.3s ease-in-out;
-    color: var(--color-font);
+.aa2-bt2 {
+  background-color: transparent;
+  border-width: 0;
+  transition: all 0.3s ease-in-out;
+  color: var(--color-font);
 }
-.aa2-bt2:hover{
-    color: var(--color-button);
-}
-
-.aa5{
-    display: flex;
-    justify-content: space-between;
+.aa2-bt2:hover {
+  color: var(--color-button);
 }
 
-.aa5 .aa5-bb{
-    margin-right: 10px;
-    width: 80px;
-    height: 45px;
+.aa5 {
+  display: flex;
+  justify-content: space-between;
 }
 
-.aa3{
-    height: 35px;
-    width: 120px;
-    border-radius:  var(--border-radius);
-    align-items: center;
-    background-color: var(--color-button);
-    display: flex;
-    padding: 5px;
-    cursor: pointer;
-}
-.aa3 img{
-    filter: brightness(0) invert(1);
+.aa5 .aa5-bb {
+  margin-right: 10px;
+  width: 80px;
+  height: 45px;
 }
 
-.aa3 p{
-    color: var(--color-back);
-    margin-left: 5px;
+.aa3 {
+  height: 35px;
+  width: 120px;
+  border-radius: var(--border-radius);
+  align-items: center;
+  background-color: var(--color-button);
+  display: flex;
+  padding: 5px;
+  cursor: pointer;
+}
+.aa3 img {
+  filter: brightness(0) invert(1);
 }
 
-.aa4{
-    display: flex;
-    height: 40px;
-    width: 800px;
-    background-color: var(--color-button);
-    border-radius:  var(--border-radius);
-    padding: 2px ;
-    margin: 10px;
-    align-items: center;
+.aa3 p {
+  color: var(--color-back);
+  margin-left: 5px;
 }
 
-.aa4-dv1{
-    background-color: var(--color-back);
-    width: 100%;
-    height: 100%;
-    border-radius: 8px;
-    display: flex;
-    align-items: center;
-    box-sizing: border-box;
-    padding: 5px;
+.aa4 {
+  display: flex;
+  height: 40px;
+  width: 800px;
+  background-color: var(--color-button);
+  border-radius: var(--border-radius);
+  padding: 2px;
+  margin: 10px;
+  align-items: center;
 }
 
-.aa4-dv1 input{
-    height: 100%;
-    font-size: 12pt;
-    outline: none;
-    background-color: transparent;
-    border-width: 0;
-    width: 100%;
-    color: var(--color-font);
+.aa4-dv1 {
+  background-color: var(--color-back);
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 5px;
 }
 
-.signinbutton{
-    transition: all 0.3s ease-in-out;
+.aa4-dv1 input {
+  height: 100%;
+  font-size: 12pt;
+  outline: none;
+  background-color: transparent;
+  border-width: 0;
+  width: 100%;
+  color: var(--color-font);
 }
 
-.signinbutton:hover{
-    box-shadow: 0 0 10px var(--color-accent2);
+.signinbutton {
+  transition: all 0.3s ease-in-out;
 }
 
-.aa4-dv2{
-    box-sizing: border-box;
-    padding: 3px 0px;
-    height: 100%;
-    width: 80px;
+.signinbutton:hover {
+  box-shadow: 0 0 10px var(--color-accent2);
 }
 
-.aa4-dv2 button{
-    box-sizing: border-box;
-    height: 100%;
-    width: 100%;
-    background-color: transparent;
-    border-width: 0;
-    cursor: pointer;
+.aa4-dv2 {
+  box-sizing: border-box;
+  padding: 3px 0px;
+  height: 100%;
+  width: 80px;
 }
 
-.aa4-dv2 button img{
-    filter: brightness(0) invert(1);
-    height: 100%;
+.aa4-dv2 button {
+  box-sizing: border-box;
+  height: 100%;
+  width: 100%;
+  background-color: transparent;
+  border-width: 0;
+  cursor: pointer;
 }
 
-.aa5 button{
-    background-color: transparent;
-    border-width: 0;
-    cursor: pointer;
+.aa4-dv2 button img {
+  filter: brightness(0) invert(1);
+  height: 100%;
 }
 
-.aa5 button p{
-    transition: all 0.3s ease-in-out;
+.aa5 button {
+  background-color: transparent;
+  border-width: 0;
+  cursor: pointer;
 }
 
-.aa5 button:hover p{
-    color: var(--color-accent);
+.aa5 button p {
+  transition: all 0.3s ease-in-out;
 }
 
-.aa2 button:hover img path{
-    fill: #001a34;
+.aa5 button:hover p {
+  color: var(--color-accent);
+}
+
+.aa2 button:hover img path {
+  fill: #001a34;
 }
 
 .loginautorizbut1 {
-    position: relative;
-    z-index: 1; /* add */
-  }
+  position: relative;
+  z-index: 1; /* add */
+}
 
 .loginautorizbut1:hover + .aa5-bd1,
 .aa5-bd1:hover,
-.aa5-bd1 a:hover{
-    opacity: 1;
-    transition-delay: 0s;
-    z-index: 2;
+.aa5-bd1 a:hover {
+  opacity: 1;
+  transition-delay: 0s;
+  z-index: 2;
 }
 
-.loginautorizbut1 + .aa5-bd1{
-    opacity: 0;
-    display: flex;
-    position: absolute;
-    height: auto;
-    min-width: 100px;
-    background-color: var(--color-back);
-    margin-top: 60px;
-    margin-left: -10px;
-    border-radius: var(--border-radius);
-    box-shadow: 0 0 30px rgba(0,0,0,0.2);
-    flex-direction: column;
-    flex-wrap: wrap;
-    padding: 10px 0px 0px 0px;
-    transition: all 0.2s ease-in-out;
-    transition-delay: 0.3s;
-    z-index: 2;
+.loginautorizbut1 + .aa5-bd1 {
+  opacity: 0;
+  display: flex;
+  position: absolute;
+  height: auto;
+  min-width: 100px;
+  background-color: var(--color-back);
+  margin-top: 60px;
+  margin-left: -10px;
+  border-radius: var(--border-radius);
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
+  flex-direction: column;
+  flex-wrap: wrap;
+  padding: 10px 0px 0px 0px;
+  transition: all 0.2s ease-in-out;
+  transition-delay: 0.3s;
+  z-index: 2;
 }
 
-#logout-btn{
-    font-size: 11pt;
-    font-family: "GTEestiPro-Light";
-    padding: 0px 10px 10px 10px;
-    text-align: start;
-    transition: all 0.2s ease-in-out;
+#logout-btn {
+  font-size: 11pt;
+  font-family: "GTEestiPro-Light";
+  padding: 0px 10px 10px 10px;
+  text-align: start;
+  transition: all 0.2s ease-in-out;
 }
 
-.aa5-bd1 a{
-    transition: all 0.2s ease-in-out;
-    font-family: "GTEestiPro-Light";
-    font-size: 11pt;
-    padding: 0px 10px 10px 10px;
-    text-decoration: none;
+.aa5-bd1 a {
+  transition: all 0.2s ease-in-out;
+  font-family: "GTEestiPro-Light";
+  font-size: 11pt;
+  padding: 0px 10px 10px 10px;
+  text-decoration: none;
 }
 
 .aa5-bd1 a:hover,
-#logout-btn:hover{
-    color: var(--color-accent);
-    cursor: pointer;
+#logout-btn:hover {
+  color: var(--color-accent);
+  cursor: pointer;
 }
 
-footer{
-    height: auto;
-    background-color: #eef1f2;
-    box-sizing: border-box;
-    padding: 40px 60px;
+footer {
+  height: auto;
+  background-color: #eef1f2;
+  box-sizing: border-box;
+  padding: 40px 60px;
 }
 
-footer div{
-    display: grid;
-    grid-template-columns: auto auto auto auto auto;
+footer div {
+  display: grid;
+  grid-template-columns: auto auto auto auto auto;
 }
 
-footer div div{
-    display: flex;
-    flex-direction: column;
+footer div div {
+  display: flex;
+  flex-direction: column;
 }
 
-.foot-div1 span{
-    margin-bottom: 14px;
+.foot-div1 span {
+  margin-bottom: 14px;
 }
 
-.foot-div1 a{
-    margin-bottom: 14px;
-    color: #666666;
-    font-family: "GTEestiPro-Light";
-    transition: all 0.2s ease-in-out;
+.foot-div1 a {
+  margin-bottom: 14px;
+  color: #666666;
+  font-family: "GTEestiPro-Light";
+  transition: all 0.2s ease-in-out;
 }
-.foot-div1 a:hover{
-    cursor: pointer;
-    color: var(--color-accent);
-}
-
-.foot-div2{
-    display: flexbox;
+.foot-div1 a:hover {
+  cursor: pointer;
+  color: var(--color-accent);
 }
 
-.foot-div2 img{
-    align-self: center;
-    margin-bottom: 20px;
+.foot-div2 {
+  display: flexbox;
 }
 
-.foot-div2 div{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
+.foot-div2 img {
+  align-self: center;
+  margin-bottom: 20px;
 }
 
-.foot-div2 div button{
-    height: 50px;
-    width: 50px;
-    border-radius:  var(--border-radius);
-    margin: 0 0px;
-    border-width: 0;
+.foot-div2 div {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
 
-.foot-div2 div button img{
-    height: 80%;
-    cursor: pointer;
+.foot-div2 div button {
+  height: 50px;
+  width: 50px;
+  border-radius: var(--border-radius);
+  margin: 0 0px;
+  border-width: 0;
 }
 
-
-
-.mainregisterdiv{
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    margin: auto;
-    width: 400px;
-    height: 500px;
-    z-index: 1;
-    /* background-color: transparent; */
-    background-color: var(--color-back);
-    border-radius: 10px;
-    border-style: solid;
-    border-color: rgba(255,255,255,0.4);
-    border-width: 0px;
-    backdrop-filter: blur(5px);
-    padding: 20px;
-    box-shadow: 0 0 30px rgba(0,0,0,0.2);
-}
-    
-
-.registrbut{
-    height: 100%px;
-    width: auto;
-    color: var(--color-back);
-    padding: 0 10px;
-    background-color: var(--color-button);
-    border-radius:  var(--border-radius);
-    border-width: 0px;
-    cursor: pointer;
-    font-size: 14pt;
+.foot-div2 div button img {
+  height: 80%;
+  cursor: pointer;
 }
 
-.regdiv1{
-    display: flex;
-    justify-content: space-between;
-    height: 40px;
-    margin-bottom: 40px;
+.mainregisterdiv {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  width: 400px;
+  height: 500px;
+  z-index: 1;
+  /* background-color: transparent; */
+  background-color: var(--color-back);
+  border-radius: 10px;
+  border-style: solid;
+  border-color: rgba(255, 255, 255, 0.4);
+  border-width: 0px;
+  backdrop-filter: blur(5px);
+  padding: 20px;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
 }
 
-.regdiv2{
-    display: flex;
-    flex-direction: column;
+.registrbut {
+  height: 100%px;
+  width: auto;
+  color: var(--color-back);
+  padding: 0 10px;
+  background-color: var(--color-button);
+  border-radius: var(--border-radius);
+  border-width: 0px;
+  cursor: pointer;
+  font-size: 14pt;
 }
 
-.regdiv2 label{
-    position: relative;
+.regdiv1 {
+  display: flex;
+  justify-content: space-between;
+  height: 40px;
+  margin-bottom: 40px;
 }
 
-.regdiv2 span{
-    position: absolute;
-    left: 10px;
-    top: 15px;
-    background-color: var(--color-back);
-    
-    transition: all 0.3s ease-out;
+.regdiv2 {
+  display: flex;
+  flex-direction: column;
 }
 
-.regdiv2 input:focus{
-    border-color: var(--color-accent2);
+.regdiv2 label {
+  position: relative;
+}
+
+.regdiv2 span {
+  position: absolute;
+  left: 10px;
+  top: 15px;
+  background-color: var(--color-back);
+
+  transition: all 0.3s ease-out;
+}
+
+.regdiv2 input:focus {
+  border-color: var(--color-accent2);
 }
 
 .regdiv2 input:focus + span,
-.regdiv2 label.filled span{
-    top: -10px;
-    color: var(--color-accent2);
-    background-color: var(--color-back);
-    padding: 0 10px;
+.regdiv2 label.filled span {
+  top: -10px;
+  color: var(--color-accent2);
+  background-color: var(--color-back);
+  padding: 0 10px;
 }
 
-.btnclose{
-    height: 35px;
-    padding: 10px;
-    border-radius: 100%;
-    border-width: 0;
-    margin-left: 320px;
-    margin-right: 5px;
-    margin-bottom: 20px;
-    background-color: transparent;
-    transition: all 0.3s ease-in-out;
-    cursor: pointer;
+.btnclose {
+  height: 35px;
+  padding: 10px;
+  border-radius: 100%;
+  border-width: 0;
+  margin-left: 320px;
+  margin-right: 5px;
+  margin-bottom: 20px;
+  background-color: transparent;
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
 }
 
-.btnclose:hover{
-    background-color: lightgray;
+.btnclose:hover {
+  background-color: lightgray;
 }
 
-.btnclose img{
-    height: 100%;
+.btnclose img {
+  height: 100%;
 }
-.regdiv2 input{
-    padding: 0 15px;
-    width: 100%;
-    height: 50px;
-    outline: none;
-    background-color: var(--color-back);
-    border-radius:  var(--border-radius);
-    border: solid 2px lightgray;
-    margin-bottom: 20px;
-    font-size: 12pt;
-}
-
-.regdiv2 button{
-    height: 40px;
-    width: auto;
-    color: var(--color-back);
-    padding: 0 10px;
-    background-color: var(--color-button);
-    border-radius:  var(--border-radius);
-    border-width: 0px;
-    cursor: pointer;
-    font-size: 14pt;
+.regdiv2 input {
+  padding: 0 15px;
+  width: 100%;
+  height: 50px;
+  outline: none;
+  background-color: var(--color-back);
+  border-radius: var(--border-radius);
+  border: solid 2px lightgray;
+  margin-bottom: 20px;
+  font-size: 12pt;
 }
 
-.maindivwithproducts{
-    height: auto;
-    padding: 50px;
-    
+.regdiv2 button {
+  height: 40px;
+  width: auto;
+  color: var(--color-back);
+  padding: 0 10px;
+  background-color: var(--color-button);
+  border-radius: var(--border-radius);
+  border-width: 0px;
+  cursor: pointer;
+  font-size: 14pt;
 }
 
-.productsdiv{
+.maindivwithproducts {
+  height: auto;
+  padding: 50px;
+}
+
+.productsdiv {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.divcelldiv {
+  display: flex;
+  flex-direction: column;
+  flex-basis: calc(20% - 10px);
+  padding-bottom: 50px;
+}
+
+.divwithimg img {
+  object-fit: contain;
+  height: 100%;
+  width: 100%;
+  cursor: pointer;
+}
+
+.divwithimg {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 260px;
+  width: 200px;
+}
+
+.divcelldiv span {
+  margin-bottom: 50px;
+  background-color: var(--color-variant);
+  width: auto;
+  color: var(--color-back);
+  padding: 5px 10px;
+  border-radius: var(--border-radius);
+}
+
+.divcelldiv a {
+  cursor: pointer;
+  margin-top: 10px;
+  transition: all 0.2s ease-in-out;
+}
+
+.divwithspan {
+  margin-top: 15px;
+}
+
+.divwithname {
+  margin-top: 10px;
+  min-height: 60px;
+}
+
+.divcelldiv a:hover {
+  color: var(--color-button);
+}
+
+.divcelldiv button {
+  height: 40px;
+  width: fit-content;
+  padding: 0 15px;
+  background-color: var(--color-button);
+  border-width: 0;
+  margin-top: 5px;
+  border-radius: var(--border-radius);
+  color: var(--color-back);
+  font-size: 12pt;
+  cursor: pointer;
+}
+.basket {
+  position: relative;
+}
+
+.quantitycircle {
+  position: absolute;
+  border-radius: 10px;
+  height: 17px;
+  width: 22px;
+  background-color: var(--color-accent2);
+  top: 0;
+  right: 5px;
+}
+
+.quantitycircle span {
+  color: var(--color-back);
+  font-weight: 700;
+  font-size: 10pt;
+}
+
+.catalogdiv {
+  position: absolute;
+  display: flex;
+  height: 740px;
+  width: auto;
+  margin-top: 800px;
+  margin-left: -404.5px;
+  z-index: 2;
+  transition: all 0.5s ease-in-out;
+  border: 1px solid lightgray;
+  /* border-color: gray;
+  border-width: 1px;
+  border-style: double; */
+}
+.catalogdiv1 {
+  height: 100%;
+  width: 300px;
+  background-color: white;
+  padding: 20px;
+}
+
+.aa3:hover > .catalogdiv{
+  margin-left: -104.5px;
+}
+
+.catalogdiv1-a1{
     display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-}
-
-.divcelldiv{
-    display: flex;
-    flex-direction: column;
-    flex-basis: calc(20% - 10px);
-    padding-bottom: 50px;
-}
-
-.divwithimg img{
-    object-fit: contain;
-    height: 100%;
-    width: 100%;
-    cursor: pointer;
-}
-
-.divwithimg{
-    display: flex;
-    align-items: center;
     justify-content: center;
-    height: 260px;
-    width: 200px;
+    align-items: center;
+    height: auto;
+    margin-bottom: 10px;
+}
+.catalogdiv1-a1-b1{
+    width: 20%;
+    height: auto;
+}
+.catalogdiv1-a1-b2{
+    width: 80%;
+    height: auto;
 }
 
-.divcelldiv span{
-    margin-bottom: 50px;
-    background-color: var(--color-variant);
-    width: auto;
-    color: var(--color-back);
-    padding: 5px 10px;
-    border-radius:  var(--border-radius);
+.material-symbols-outlined {
+  font-variation-settings:
+   "FILL" 0,
+    "wght" 400, 
+    "GRAD" 0,
+     "opsz" 48;
+     color: gray;
 }
 
-.divcelldiv a{
-    cursor: pointer;
-    margin-top: 10px;
-    transition: all 0.2s ease-in-out;
+.smartphone{
+  transition: all 0.2s ease-in-out;
 }
 
-.divwithspan{
-    margin-top: 15px;
+.catalogdiv1-a1:hover > .catalogdiv1-a1-b1 > .smartphone,
+.catalogdiv1-a1:hover > .catalogdiv1-a1-b2 > .smartphone{
+  color: #0000cd;
 }
 
-.divwithname{
-    margin-top: 10px;
-    min-height: 60px;
-}
-
-.divcelldiv a:hover{
-    color: var(--color-button);
-}
-
-.divcelldiv button{
-    height: 40px;
-    width: fit-content;
-    padding: 0 15px;
-    background-color: var(--color-button);
-    border-width: 0;
-    margin-top: 5px;
-    border-radius:  var(--border-radius);
-    color: var(--color-back);
-    font-size: 12pt;
-    cursor: pointer;
-}
-.basket{
-    position: relative;
-}
-
-.quantitycircle{
-    position: absolute;
-    border-radius: 10px;
-    height: 17px;
-    width: 22px;
-    background-color: var(--color-accent2);
-    top: 0;
-    right: 5px;
-}
-
-.quantitycircle span{
-    color: var(--color-back);
-    font-weight: 700;
-    font-size: 10pt;
+.catalogdiv1-a1-b2 p{
+  color: gray;
 }

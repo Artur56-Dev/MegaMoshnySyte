@@ -159,25 +159,12 @@ function insertProducts(products) {
     $('#quantityproduct').text('Товары, ' + quantity + 'шт.');
     console.log(quantity);
     $('.aa1-bb2-cc1').click(function () {
-        const data = {
-            total_peice: parseInt(fullprice)
-        };
+        // const data = {
+        //     total_peice: parseInt(fullprice)
+        // };
         if(quantity != 0)
         {
-            console.log(fullprice);
-            $.ajax({
-                url: 'http://localhost/placeanorder.php',
-                method: 'POST',
-                dataType: 'JSON',
-                contentType: 'application/json',
-                data: JSON.stringify(data),
-                success: function (){
-
-                },
-                error: function (jqXHR, textStatus, errorTrown){
-                    console.error('Error: ' + textStatus, errorTrown);
-                }
-            });
+            location.href = "http://megamoshnysyte/Makinganorder/";
         }
         else{
             alert('В корзине нет товаров');

@@ -10,6 +10,8 @@
 //   }
 // });
 
+
+
 const div = document.querySelector('.header');
 const placeholder = document.createElement('div'); // create a placeholder element
 placeholder.style.height = div.offsetHeight + 'px'; // set its height to the height of the div element
@@ -53,7 +55,7 @@ const colseregform = document.querySelector('.btnclose');
 localStorage.setItem('sessionID', 'my-session-id');
 const sessionID = localStorage.getItem('sessionID');
 loginbtn.addEventListener('click', myHandler);
-function myHandler (event){
+function myHandler(event) {
   regform.style.display = 'block';
 };
 // loginbtn.addEventListener('click', () => {
@@ -123,10 +125,10 @@ $('.signinbutton').click(function (e) {
           url: 'http://localhost/updatecartquantity.php',
           type: 'POST',
           dataType: 'JSON',
-          success: function(response) {
+          success: function (response) {
             $('#cart-quantity').text(response);
           },
-          error: function(error) {
+          error: function (error) {
             console.error('AJAX request failed', error);
           }
         });
@@ -180,7 +182,7 @@ $('#logout-btn').click(function () {
     success: function () {
       console.log('Выход выполнен');
       location.reload();
-      
+
     },
     error: function (jqXHR, textStatus, errorThrown) {
       console.error(textStatus, errorThrown);
@@ -189,10 +191,589 @@ $('#logout-btn').click(function () {
 });
 
 const catrpagebutton = document.querySelector('#cartpageopen');
-catrpagebutton.addEventListener('click', function() {
+catrpagebutton.addEventListener('click', function () {
   window.location.href = "http://megamoshnysyte/Cart/";
 });
 const orderpagebutton = document.querySelector("#orderpageopen");
-orderpagebutton.addEventListener('click', function() {
-  window.location.href = "http://megamoshnysyte/Order/index.php";
+orderpagebutton.addEventListener('click', function () {
+  window.location.href = "http://megamoshnysyte/Orders/";
+});
+
+$('#categoryid1').click(function () {
+  console.log('Я работаею');
+  $('.productsdiv .divcelldiv').each(function () {
+    $(this).remove();
+  });
+  fetch('http://localhost/dbcoonetion.php')
+    .then((response) => response.json())
+    .then((products) => {
+      insertProducts(products);
+    })
+    .catch((error) => console.error("Ошибка: ", error));
+
+
+  function insertProducts(products) {
+    const flexContainer = document.querySelector(".productsdiv");
+
+    for (const product of products) {
+      console.log(product.category_id);
+      if (product.category_id !== '1') {
+        continue;
+      }
+      console.log('Этот продукт подходит');
+      const productDiv = document.createElement("div");
+      productDiv.className += "divcelldiv";
+      const button = document.createElement("button");
+      button.innerText = "В корзину";
+      button.addEventListener("click", function () {
+        console.log(product);
+        const data = {
+          product_id: product.product_id,
+          article: product.article,
+          name: product.name,
+          description: product.description,
+          price: product.price,
+          image_url: product.image_url
+        };
+        fetch('http://localhost/addinbasket.php', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(data)
+        })
+          .then(response => {
+            return response.json();
+          })
+          .then(data => {
+            console.log('Товар добавлен');
+            $.ajax({
+              url: 'http://localhost/updatecartquantity.php',
+              type: 'POST',
+              dataType: 'JSON',
+              success: function (response) {
+                $('#cart-quantity').text(response);
+              },
+              error: function (error) {
+                console.error('AJAX request failed', error);
+              }
+            });
+          })
+          .catch(error => {
+            console.error(error);
+          });
+      });
+
+      productDiv.innerHTML = `
+          <div class="divwithimg">
+            <img src="${product.image_url}"/>
+          </div>
+          <div class="divwithspan">
+              <span>${product.price} ₽</span>
+              </div>
+              <div class="divwithname">
+              <a>${product.description}</a>
+              </div>
+              `;
+
+      productDiv.appendChild(button);
+      flexContainer.appendChild(productDiv);
+    }
+  }
+
+});
+$('#categoryid2').click(function () {
+  console.log('Я работаею');
+  $('.productsdiv .divcelldiv').each(function () {
+    $(this).remove();
+  });
+  fetch('http://localhost/dbcoonetion.php')
+    .then((response) => response.json())
+    .then((products) => {
+      insertProducts(products);
+    })
+    .catch((error) => console.error("Ошибка: ", error));
+
+
+  function insertProducts(products) {
+    const flexContainer = document.querySelector(".productsdiv");
+
+    for (const product of products) {
+      console.log(product.category_id);
+      if (product.category_id !== '2') {
+        continue;
+      }
+      console.log('Этот продукт подходит');
+      const productDiv = document.createElement("div");
+      productDiv.className += "divcelldiv";
+      const button = document.createElement("button");
+      button.innerText = "В корзину";
+      button.addEventListener("click", function () {
+        console.log(product);
+        const data = {
+          product_id: product.product_id,
+          article: product.article,
+          name: product.name,
+          description: product.description,
+          price: product.price,
+          image_url: product.image_url
+        };
+        fetch('http://localhost/addinbasket.php', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(data)
+        })
+          .then(response => {
+            return response.json();
+          })
+          .then(data => {
+            console.log('Товар добавлен');
+            $.ajax({
+              url: 'http://localhost/updatecartquantity.php',
+              type: 'POST',
+              dataType: 'JSON',
+              success: function (response) {
+                $('#cart-quantity').text(response);
+              },
+              error: function (error) {
+                console.error('AJAX request failed', error);
+              }
+            });
+          })
+          .catch(error => {
+            console.error(error);
+          });
+      });
+
+      productDiv.innerHTML = `
+          <div class="divwithimg">
+            <img src="${product.image_url}"/>
+          </div>
+          <div class="divwithspan">
+              <span>${product.price} ₽</span>
+              </div>
+              <div class="divwithname">
+              <a>${product.description}</a>
+              </div>
+              `;
+
+      productDiv.appendChild(button);
+      flexContainer.appendChild(productDiv);
+    }
+  }
+
+});
+$('#categoryid3').click(function () {
+  console.log('Я работаею');
+  $('.productsdiv .divcelldiv').each(function () {
+    $(this).remove();
+  });
+  fetch('http://localhost/dbcoonetion.php')
+    .then((response) => response.json())
+    .then((products) => {
+      insertProducts(products);
+    })
+    .catch((error) => console.error("Ошибка: ", error));
+
+
+  function insertProducts(products) {
+    const flexContainer = document.querySelector(".productsdiv");
+
+    for (const product of products) {
+      console.log(product.category_id);
+      if (product.category_id !== '3') {
+        continue;
+      }
+      console.log('Этот продукт подходит');
+      const productDiv = document.createElement("div");
+      productDiv.className += "divcelldiv";
+      const button = document.createElement("button");
+      button.innerText = "В корзину";
+      button.addEventListener("click", function () {
+        console.log(product);
+        const data = {
+          product_id: product.product_id,
+          article: product.article,
+          name: product.name,
+          description: product.description,
+          price: product.price,
+          image_url: product.image_url
+        };
+        fetch('http://localhost/addinbasket.php', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(data)
+        })
+          .then(response => {
+            return response.json();
+          })
+          .then(data => {
+            console.log('Товар добавлен');
+            $.ajax({
+              url: 'http://localhost/updatecartquantity.php',
+              type: 'POST',
+              dataType: 'JSON',
+              success: function (response) {
+                $('#cart-quantity').text(response);
+              },
+              error: function (error) {
+                console.error('AJAX request failed', error);
+              }
+            });
+          })
+          .catch(error => {
+            console.error(error);
+          });
+      });
+
+      productDiv.innerHTML = `
+          <div class="divwithimg">
+            <img src="${product.image_url}"/>
+          </div>
+          <div class="divwithspan">
+              <span>${product.price} ₽</span>
+              </div>
+              <div class="divwithname">
+              <a>${product.description}</a>
+              </div>
+              `;
+
+      productDiv.appendChild(button);
+      flexContainer.appendChild(productDiv);
+    }
+  }
+
+});
+$('#categoryid4').click(function () {
+  console.log('Я работаею');
+  $('.productsdiv .divcelldiv').each(function () {
+    $(this).remove();
+  });
+  fetch('http://localhost/dbcoonetion.php')
+    .then((response) => response.json())
+    .then((products) => {
+      insertProducts(products);
+    })
+    .catch((error) => console.error("Ошибка: ", error));
+
+
+  function insertProducts(products) {
+    const flexContainer = document.querySelector(".productsdiv");
+
+    for (const product of products) {
+      console.log(product.category_id);
+      if (product.category_id !== '4') {
+        continue;
+      }
+      console.log('Этот продукт подходит');
+      const productDiv = document.createElement("div");
+      productDiv.className += "divcelldiv";
+      const button = document.createElement("button");
+      button.innerText = "В корзину";
+      button.addEventListener("click", function () {
+        console.log(product);
+        const data = {
+          product_id: product.product_id,
+          article: product.article,
+          name: product.name,
+          description: product.description,
+          price: product.price,
+          image_url: product.image_url
+        };
+        fetch('http://localhost/addinbasket.php', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(data)
+        })
+          .then(response => {
+            return response.json();
+          })
+          .then(data => {
+            console.log('Товар добавлен');
+            $.ajax({
+              url: 'http://localhost/updatecartquantity.php',
+              type: 'POST',
+              dataType: 'JSON',
+              success: function (response) {
+                $('#cart-quantity').text(response);
+              },
+              error: function (error) {
+                console.error('AJAX request failed', error);
+              }
+            });
+          })
+          .catch(error => {
+            console.error(error);
+          });
+      });
+
+      productDiv.innerHTML = `
+          <div class="divwithimg">
+            <img src="${product.image_url}"/>
+          </div>
+          <div class="divwithspan">
+              <span>${product.price} ₽</span>
+              </div>
+              <div class="divwithname">
+              <a>${product.description}</a>
+              </div>
+              `;
+
+      productDiv.appendChild(button);
+      flexContainer.appendChild(productDiv);
+    }
+  }
+
+});
+$('#categoryid5').click(function () {
+  console.log('Я работаею');
+  $('.productsdiv .divcelldiv').each(function () {
+    $(this).remove();
+  });
+  fetch('http://localhost/dbcoonetion.php')
+    .then((response) => response.json())
+    .then((products) => {
+      insertProducts(products);
+    })
+    .catch((error) => console.error("Ошибка: ", error));
+
+
+  function insertProducts(products) {
+    const flexContainer = document.querySelector(".productsdiv");
+
+    for (const product of products) {
+      console.log(product.category_id);
+      if (product.category_id !== '5') {
+        continue;
+      }
+      console.log('Этот продукт подходит');
+      const productDiv = document.createElement("div");
+      productDiv.className += "divcelldiv";
+      const button = document.createElement("button");
+      button.innerText = "В корзину";
+      button.addEventListener("click", function () {
+        console.log(product);
+        const data = {
+          product_id: product.product_id,
+          article: product.article,
+          name: product.name,
+          description: product.description,
+          price: product.price,
+          image_url: product.image_url
+        };
+        fetch('http://localhost/addinbasket.php', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(data)
+        })
+          .then(response => {
+            return response.json();
+          })
+          .then(data => {
+            console.log('Товар добавлен');
+            $.ajax({
+              url: 'http://localhost/updatecartquantity.php',
+              type: 'POST',
+              dataType: 'JSON',
+              success: function (response) {
+                $('#cart-quantity').text(response);
+              },
+              error: function (error) {
+                console.error('AJAX request failed', error);
+              }
+            });
+          })
+          .catch(error => {
+            console.error(error);
+          });
+      });
+
+      productDiv.innerHTML = `
+          <div class="divwithimg">
+            <img src="${product.image_url}"/>
+          </div>
+          <div class="divwithspan">
+              <span>${product.price} ₽</span>
+              </div>
+              <div class="divwithname">
+              <a>${product.description}</a>
+              </div>
+              `;
+
+      productDiv.appendChild(button);
+      flexContainer.appendChild(productDiv);
+    }
+  }
+
+});
+$('#categoryid6').click(function () {
+  console.log('Я работаею');
+  $('.productsdiv .divcelldiv').each(function () {
+    $(this).remove();
+  });
+  fetch('http://localhost/dbcoonetion.php')
+    .then((response) => response.json())
+    .then((products) => {
+      insertProducts(products);
+    })
+    .catch((error) => console.error("Ошибка: ", error));
+
+
+  function insertProducts(products) {
+    const flexContainer = document.querySelector(".productsdiv");
+
+    for (const product of products) {
+      console.log(product.category_id);
+      if (product.category_id !== '6') {
+        continue;
+      }
+      console.log('Этот продукт подходит');
+      const productDiv = document.createElement("div");
+      productDiv.className += "divcelldiv";
+      const button = document.createElement("button");
+      button.innerText = "В корзину";
+      button.addEventListener("click", function () {
+        console.log(product);
+        const data = {
+          product_id: product.product_id,
+          article: product.article,
+          name: product.name,
+          description: product.description,
+          price: product.price,
+          image_url: product.image_url
+        };
+        fetch('http://localhost/addinbasket.php', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(data)
+        })
+          .then(response => {
+            return response.json();
+          })
+          .then(data => {
+            console.log('Товар добавлен');
+            $.ajax({
+              url: 'http://localhost/updatecartquantity.php',
+              type: 'POST',
+              dataType: 'JSON',
+              success: function (response) {
+                $('#cart-quantity').text(response);
+              },
+              error: function (error) {
+                console.error('AJAX request failed', error);
+              }
+            });
+          })
+          .catch(error => {
+            console.error(error);
+          });
+      });
+
+      productDiv.innerHTML = `
+          <div class="divwithimg">
+            <img src="${product.image_url}"/>
+          </div>
+          <div class="divwithspan">
+              <span>${product.price} ₽</span>
+              </div>
+              <div class="divwithname">
+              <a>${product.description}</a>
+              </div>
+              `;
+
+      productDiv.appendChild(button);
+      flexContainer.appendChild(productDiv);
+    }
+  }
+
+});
+$('#categoryidall').click(function () {
+  console.log('Я работаею');
+  $('.productsdiv .divcelldiv').each(function () {
+    $(this).remove();
+  });
+  fetch('http://localhost/dbcoonetion.php')
+    .then((response) => response.json())
+    .then((products) => {
+      insertProducts(products);
+    })
+    .catch((error) => console.error("Ошибка: ", error));
+
+
+  function insertProducts(products) {
+    const flexContainer = document.querySelector(".productsdiv");
+
+    for (const product of products) {
+      console.log(product.category_id);
+      console.log('Этот продукт подходит');
+      const productDiv = document.createElement("div");
+      productDiv.className += "divcelldiv";
+      const button = document.createElement("button");
+      button.innerText = "В корзину";
+      button.addEventListener("click", function () {
+        console.log(product);
+        const data = {
+          product_id: product.product_id,
+          article: product.article,
+          name: product.name,
+          description: product.description,
+          price: product.price,
+          image_url: product.image_url
+        };
+        fetch('http://localhost/addinbasket.php', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(data)
+        })
+          .then(response => {
+            return response.json();
+          })
+          .then(data => {
+            console.log('Товар добавлен');
+            $.ajax({
+              url: 'http://localhost/updatecartquantity.php',
+              type: 'POST',
+              dataType: 'JSON',
+              success: function (response) {
+                $('#cart-quantity').text(response);
+              },
+              error: function (error) {
+                console.error('AJAX request failed', error);
+              }
+            });
+          })
+          .catch(error => {
+            console.error(error);
+          });
+      });
+
+      productDiv.innerHTML = `
+          <div class="divwithimg">
+            <img src="${product.image_url}"/>
+          </div>
+          <div class="divwithspan">
+              <span>${product.price} ₽</span>
+              </div>
+              <div class="divwithname">
+              <a>${product.description}</a>
+              </div>
+              `;
+
+      productDiv.appendChild(button);
+      flexContainer.appendChild(productDiv);
+    }
+  }
+
 });

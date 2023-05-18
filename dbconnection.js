@@ -13,6 +13,7 @@ fetch('http://localhost/dbcoonetion.php')
     const flexContainer = document.querySelector(".productsdiv");
   
     for (const product of products) {
+      
       const productDiv = document.createElement("div");
       productDiv.className += "divcelldiv";
       const button = document.createElement("button");

@@ -1,0 +1,103 @@
+@font-face {
+    font-family: "GTEestiPro-Light";
+    src: url("../fonts/GTEestiProDisplay-Light.woff2") format("woff2");
+}
+@font-face {
+    font-family: "GTEestiPro-Regular";
+    src: url("../fonts/GTEestiProDisplay-Regular.woff2") format("woff2");
+}
+:root{
+    /* --color1: #0E3049;
+    --color-accent: #0D858A;
+    --color-accent2: #7FC7A6;
+    --color-border: #F1D05A;
+    --color-button: #F85A3E; */
+
+    --color1: #DEDCE9;
+    --color-accent: #7365AF;
+    --color-accent2: #8E77B3;
+    --color-border: #674890;
+    /* --color-button: #3D398D; */
+    --color-button: #7365AF;
+    --color-font:#001a34;
+    --color-variant: #10c44c;
+    --color-back: #ffffff;
+
+    --border-radius: 7px;
+}
+
+* {
+    margin: 0;
+    box-sizing: border-box;
+    color: var(--color-font);
+    font-family: 'GTEestiPro-Regular';
+}
+
+body{
+    background-color: #f7f8f9;
+}
+
+.maindiv{
+    margin: 30px;
+}
+
+.a1{
+    padding-bottom: 20px;
+}
+
+.orderdiv-a1{
+    height: 220px;
+    width: 100%;
+    border-radius: var(--border-radius);
+    box-shadow: 0 0 15px rgb(128, 128, 128, 0.3);
+}
+
+.orderdiv-b1{
+    display: flex;
+    height: 37%;
+    background-color: rgb(128,128,128, 0.1);
+    width: 100%;
+    border-radius: var(--border-radius) var(--border-radius) 0 0 ;
+    justify-content: space-between;
+    padding: 15px;
+}
+
+.orderdiv-b1-c1{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.orderdiv-b1-c1 a{
+    color: var(--color-accent2);
+    cursor: pointer;
+    transition: all 0.1s ease-in-out;
+}
+.orderdiv-b1-c1 a:hover{
+    color: var(--color-accent);
+}
+
+.orderdiv-b1-c2{
+    display:flex;
+    align-items: end;
+    margin-bottom: 25px;
+}
+
+.orderdiv-b1-c2 p{
+    font-size: 12pt;
+    
+}
+.orderdiv-b1-c2 span{
+    font-size: 16pt;
+}
+
+.orderdiv-b1-c2-d1{
+    margin-right: 10px;
+}
+
+.orderdiv-a2{
+    margin: 20px;
+    display: flex;
+    justify-content: space-between;
+}

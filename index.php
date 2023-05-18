@@ -19,8 +19,8 @@ if (isset($_SESSION['user'])) {
   $basket_id = $row['basket_id'];
 }
 
-  // Query the Cart_item table to count the number of rows with the user's basket_id
-  if (isset($_SESSION['cart_id'])) {
+// Query the Cart_item table to count the number of rows with the user's basket_id
+if (isset($_SESSION['cart_id'])) {
   $sql = "SELECT COUNT(*) as `num_items` FROM `Cart_item` WHERE `basket_id` = $basket_id";
   $result = $conn->query($sql);
   $row = $result->fetch_assoc();
@@ -34,8 +34,9 @@ if (isset($_SESSION['user'])) {
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="mainstyle.css">
-  <script src="  https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.6.4.min.js"></script>
+  <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.6.4.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
   <title>Маркет</title>
 
 </head>
@@ -58,10 +59,93 @@ if (isset($_SESSION['user'])) {
     </div>
   </div>
   <div class="header">
-    <div class="icondiv"></div>
+    <div class="icondiv">
+      <img src="/Icons/magamagazmom.svg" height="100%">
+    </div>
     <div class="aa3">
       <img src="../Icons/toc.svg" height="100%" />
       <p>Каталог</p>
+      <div class="catalogdiv">
+        <div class="catalogdiv1">
+          <div id="categoryidall" class="catalogdiv1-a1">
+            <div class="catalogdiv1-a1-b1 ">
+              <span class="material-symbols-outlined smartphone">
+              grid_view
+              </span>
+            </div>
+            <div class="catalogdiv1-a1-b2">
+              <p class="smartphone">Все товары</p>
+
+            </div>
+          </div>
+          <div id="categoryid1" class="catalogdiv1-a1">
+            <div class="catalogdiv1-a1-b1 ">
+              <span class="material-symbols-outlined smartphone">
+                smartphone
+              </span>
+            </div>
+            <div class="catalogdiv1-a1-b2">
+              <p class="smartphone">Электроника</p>
+
+            </div>
+          </div>
+          <div id="categoryid2" class="catalogdiv1-a1">
+            <div class="catalogdiv1-a1-b1 ">
+              <span class="material-symbols-outlined smartphone">
+                coffee_maker
+              </span>
+            </div>
+            <div class="catalogdiv1-a1-b2">
+              <p class="smartphone">Бытовая техника</p>
+
+            </div>
+          </div>
+          <div id="categoryid3" class="catalogdiv1-a1">
+            <div class="catalogdiv1-a1-b1 ">
+              <span class="material-symbols-outlined smartphone">
+                sports_basketball
+              </span>
+            </div>
+            <div class="catalogdiv1-a1-b2">
+              <p class="smartphone">Спорт и отдых</p>
+
+            </div>
+          </div>
+          <div id="categoryid4" class="catalogdiv1-a1">
+            <div class="catalogdiv1-a1-b1 ">
+              <span class="material-symbols-outlined smartphone">
+                deceased
+              </span>
+            </div>
+            <div class="catalogdiv1-a1-b2">
+              <p class="smartphone">Дом и сад</p>
+
+            </div>
+          </div>
+          <div id="categoryid5" class="catalogdiv1-a1">
+            <div class="catalogdiv1-a1-b1 ">
+              <span class="material-symbols-outlined smartphone">
+                diamond
+              </span>
+            </div>
+            <div class="catalogdiv1-a1-b2">
+              <p class="smartphone">Аксессуары</p>
+
+            </div>
+          </div>
+          <div id="categoryid6" class="catalogdiv1-a1">
+            <div class="catalogdiv1-a1-b1 ">
+              <span class="material-symbols-outlined smartphone">
+                menu_book
+              </span>
+            </div>
+            <div class="catalogdiv1-a1-b2">
+              <p class="smartphone">Книги</p>
+
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
     <div class="aa4">
       <div class="aa4-dv1">
